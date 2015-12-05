@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="应用程序签名验证通过，请放心使用" />
+
+    <Button
+        android:id="@+id/action_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/text"
+        android:layout_marginTop="74dp"
+        android:background="@color/black"
+        android:text="确认"
+        android:textSize="20dp"
+        android:textColor="@color/white" />
+ 
+</RelativeLayout>

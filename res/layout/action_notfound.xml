@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+    <TextView
+            android:id="@+id/text_notfound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="隼翼安全中心提醒您："
+            android:padding="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"/>
+    <TextView
+            android:id="@+id/text_notfound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="应用程序签名没有查询到，是否更新签名数据库？"
+            android:layout_marginTop="21dp"
+            android:layout_below="@+id/text_notfound" android:layout_alignParentLeft="true"/>
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="11dp"
+            android:orientation="horizontal" android:id="@+id/linearLayout" android:layout_below="@+id/text_notfound"
+            android:layout_alignParentLeft="true">
+
+        <Button
+                android:id="@+id/action_notpass_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="确认"/>
+
+        <Button
+                android:id="@+id/action_notpass_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="取消"/>
+    </LinearLayout>
+
+</RelativeLayout>

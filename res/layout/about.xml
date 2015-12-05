@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+    <RelativeLayout
+            android:id="@+id/title_ry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+        <RelativeLayout
+                android:id="@+id/titile_layout_ry"
+                android:layout_width="fill_parent"
+                android:layout_height="43dip"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/top_bar_bg">
+            <Button
+                    android:id="@+id/item_back_about"
+                    android:layout_width="54dip"
+                    android:layout_height="32dip"
+                    android:textColor="@color/black"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/item_back_style" />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_vertical"
+                    android:text="关于"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="191dp"
+            android:src="@drawable/start"
+            android:layout_below="@id/title_ry"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imageView"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="封锁"
+            android:layout_below="@id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"
+            android:id="@+id/textView"/>
+    
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="        隼翼--源于梁启超先生《少年中国说》中的“鹰隼试翼，风尘翕张”。我们信安人希望用自己的专业知识为信息安全尽自己的一点力，让移动互联网的用户数据安全有所改善。"
+            android:textColor="@color/black"
+            android:layout_below="@id/textView"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/textView2"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/support"
+            android:id="@+id/textView3"
+            android:layout_above="@+id/textView4"
+            android:textColor="@color/gray"
+            android:textSize="10sp"
+            android:layout_centerHorizontal="true"/>
+    
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="For The Dream"
+            android:id="@id/textView4"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/gray"
+            android:textSize="10sp"
+            android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

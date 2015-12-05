@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+    <RelativeLayout
+            android:id="@+id/titile_layout_ry"
+            android:layout_width="fill_parent"
+            android:layout_height="43dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/top_bar_bg">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:text="应用程序列表"
+                android:textColor="@color/white"
+                android:textSize="20dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+            android:id="@+id/button_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titile_layout_ry"
+            android:layout_alignParentLeft="true"
+            >
+        <Button
+                android:id="@+id/openButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="显示统计图"
+                android:layout_weight="1"/>
+        <Button
+                android:id="@+id/closeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关闭统计图"
+                android:layout_weight="1"/>
+    </LinearLayout>
+    <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/layout1"
+            android:visibility="gone"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/button_linearLayout"/>
+    <include
+            android:layout_width="wrap_content"
+            android:layout_height="366dp"
+            android:layout_above="@+id/layout1"
+            android:layout_alignParentLeft="true"
+            layout="@layout/browse_app_list" android:layout_below="@+id/button_linearLayout"/>
+    <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true">
+
+        <include
+                layout="@layout/home_footbar_layout"/>
+    </LinearLayout>
+
+</RelativeLayout>

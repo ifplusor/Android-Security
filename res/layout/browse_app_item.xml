@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+    >
+
+    <ImageView
+        android:id="@+id/imgApp"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent" >
+    </ImageView>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip" >
+
+        <TextView
+            android:id="@+id/tvLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AppLable : " >
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvAppLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_toRightOf="@id/tvLabel"
+            android:text="Label"
+            android:textColor="#FFD700" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvLabel"
+            android:text="包名:" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvPkgName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tvAppLabel"
+            android:layout_below="@id/tvAppLabel"
+            android:text="包名"
+            android:textColor="#FFD700" >
+
+        </TextView>
+        
+        <TextView
+            android:id="@+id/tvUid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvName"
+            android:text="PID：" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvAppUid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tvAppLabel"
+            android:layout_below="@id/tvPkgName"
+            android:text="PID"
+            android:textColor="#FFD700" >
+
+        </TextView>
+        
+        <ImageView 
+            android:layout_width="6dip"
+            android:layout_height="12dip"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dip"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="43dip"
+    android:background="@drawable/top_bar_bg"
+    android:id="@+id/item_draw_topbar" >
+
+    <Button
+        android:id="@+id/item_back"
+        android:layout_width="54dip"
+        android:layout_height="32dip"
+        android:textColor="@color/black"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/item_back_style" />
+</RelativeLayout>

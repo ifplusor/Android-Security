@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+    <RelativeLayout
+            android:id="@+id/title_ry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+        <include
+                layout="@layout/item_draw_topbar_layout"
+                android:id="@+id/include"
+                />
+    </RelativeLayout>
+
+    <ImageView
+            android:id="@+id/nothing_imageView"
+            android:src="@drawable/nothing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
+    <LinearLayout
+            android:id="@+id/nothing_lineralayout"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            >
+    </LinearLayout>
+    <TextView
+            android:id="@+id/nothing_textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:text="这个程序很低调"
+            android:layout_below="@id/nothing_imageView" android:layout_centerHorizontal="true"/>
+    <TextView
+            android:id="@+id/nothing_textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:text="没有访问隐私相关权限"
+            android:layout_below="@+id/nothing_textView1" android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

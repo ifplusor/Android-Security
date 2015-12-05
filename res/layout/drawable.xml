@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+        >
+
+    <RelativeLayout
+            android:id="@+id/title_ry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+        <include
+                layout="@layout/item_draw_topbar_layout"
+                android:id="@+id/include"
+                />
+        <Spinner
+                android:layout_width="280px"
+                android:layout_height="43dip"
+                android:paddingLeft="30dip"
+                android:gravity="center"
+                android:background="@drawable/spinner"
+                android:id="@+id/spinner"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_alignBottom="@+id/include"/>
+        <Button
+                android:id="@+id/suggestionButton"
+                android:text="分析"
+                android:textColor="@color/white"
+                android:layout_marginTop="2dip"
+                android:background="@drawable/analysebutton_style"
+                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="38dip"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"/>
+
+    </RelativeLayout>
+    <LinearLayout
+            android:id="@+id/signal_layout"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/title_ry"
+            android:orientation="vertical">
+        <WebView
+                android:id="@+id/drawable_webView"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/onlyong_layout"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_alignTop="@+id/signal_layout">
+        <ImageView
+            android:id="@+id/onlyone_image"
+            android:layout_height="300dp"
+            android:layout_width="200dp"
+            android:src="@drawable/onlyone"
+            android:layout_gravity="center_vertical"
+            />
+        <TextView
+                android:id="@+id/onlyone_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/black"
+                android:layout_gravity="center_vertical"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
