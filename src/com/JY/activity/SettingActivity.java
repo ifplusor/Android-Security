@@ -22,8 +22,8 @@ import java.util.ArrayList;
 
 public class SettingActivity extends Activity {
     private long m_exitTime = 0;
-    private LinearLayout main_layout, first_layout, second_layout,
-            third_layout;
+    private LinearLayout permission_layout, traffic_layout, analysis_layout,
+            setting_layout;
     private Switch mSwitch;
     private Context mcontext;
     private LinearLayout downloadLineralayout;
@@ -33,8 +33,8 @@ public class SettingActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.setting);
-
         setupViewComponet();
+        
         downloadLineralayout = (LinearLayout)findViewById(R.id.downloadLineralayout);
         downloadLineralayout.setOnClickListener(downloadListener);
 
@@ -120,17 +120,17 @@ public class SettingActivity extends Activity {
         Intent intent = getIntent();
         boolean clickble = intent.getBooleanExtra("clickble", true);
 
-        main_layout = (LinearLayout) findViewById(R.id.main_layout_ly);
-        main_layout.setOnClickListener(clickListener_main);
+        permission_layout = (LinearLayout) findViewById(R.id.permission_layout_ly);
+        permission_layout.setOnClickListener(clickListener_permission);
 
-        first_layout = (LinearLayout) findViewById(R.id.first_layout_ly);
-        first_layout.setOnClickListener(clickListener_first);
+        traffic_layout = (LinearLayout) findViewById(R.id.traffic_layout_ly);
+        traffic_layout.setOnClickListener(clickListener_triffic);
 
-        second_layout = (LinearLayout) findViewById(R.id.second_layout_ly);
-        second_layout.setOnClickListener(clickListener_second);
+        analysis_layout = (LinearLayout) findViewById(R.id.analysis_layout_ly);
+        analysis_layout.setOnClickListener(clickListener_analysis);
 
-        third_layout = (LinearLayout) findViewById(R.id.third_layout_ly);
-        third_layout.setSelected(clickble);
+        setting_layout = (LinearLayout) findViewById(R.id.setting_layout_ly);
+        setting_layout.setSelected(clickble);
 
         mcontext = this.getBaseContext();
     }
@@ -142,52 +142,52 @@ public class SettingActivity extends Activity {
     // this.finish();
     // }
 
-    private OnClickListener clickListener_first = new OnClickListener() {
+    private OnClickListener clickListener_triffic = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            main_layout.setSelected(false);
-            first_layout.setSelected(true);
-            second_layout.setSelected(false);
-            third_layout.setSelected(false);
+            permission_layout.setSelected(false);
+            traffic_layout.setSelected(true);
+            analysis_layout.setSelected(false);
+            setting_layout.setSelected(false);
             Intent intent = new Intent();
-            intent.setClass(SettingActivity.this, FlowActivity.class);
+            intent.setClass(SettingActivity.this, TrafficActivity.class);
             intent.putExtra("clickble", true);
             SettingActivity.this.finish();
             startActivity(intent);
-            main_layout.setSelected(false);
+            permission_layout.setSelected(false);
         }
     };
-    private OnClickListener clickListener_second = new OnClickListener() {
+    private OnClickListener clickListener_analysis = new OnClickListener() {
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
-            main_layout.setSelected(false);
-            first_layout.setSelected(false);
-            second_layout.setSelected(true);
-            third_layout.setSelected(false);
+            permission_layout.setSelected(false);
+            traffic_layout.setSelected(false);
+            analysis_layout.setSelected(true);
+            setting_layout.setSelected(false);
             Intent intent = new Intent();
             intent.setClass(SettingActivity.this, AnalysisActivity.class);
             intent.putExtra("clickble", true);
             SettingActivity.this.finish();
             startActivity(intent);
-            first_layout.setSelected(false);
+            traffic_layout.setSelected(false);
         }
     };
-    private OnClickListener clickListener_main = new OnClickListener() {
+    private OnClickListener clickListener_permission = new OnClickListener() {
 
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
-            main_layout.setSelected(true);
-            first_layout.setSelected(false);
-            second_layout.setSelected(false);
-            third_layout.setSelected(false);
+            permission_layout.setSelected(true);
+            traffic_layout.setSelected(false);
+            analysis_layout.setSelected(false);
+            setting_layout.setSelected(false);
             Intent intent = new Intent();
             intent.setClass(SettingActivity.this, PermissionActivity.class);
             intent.putExtra("clickble", true);
             SettingActivity.this.finish();
             startActivity(intent);
-            second_layout.setSelected(false);
+            analysis_layout.setSelected(false);
         }
     };
 

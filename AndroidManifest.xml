@@ -32,7 +32,7 @@
                 android:theme="@style/Theme">
         </activity>
         <activity
-                android:name="com.JY.activity.FlowActivity"
+                android:name="com.JY.activity.TrafficActivity"
                 android:label="@string/app_name"
                 android:theme="@style/Theme">
         </activity>

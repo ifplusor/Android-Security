@@ -21,6 +21,7 @@ public class BrowseApplicationInfoAdapter extends BaseAdapter{
 		infater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mlistAppInfo = apps;
 	}
+	
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
@@ -53,18 +54,22 @@ public class BrowseApplicationInfoAdapter extends BaseAdapter{
 			view = convertView ;
 			holder = (ViewHolder) convertView.getTag() ;
 		}
+		
 		AppInfo appInfo = (AppInfo) getItem(position);
 		holder.appIcon.setImageDrawable(appInfo.getAppIcon());
 		holder.tvAppLabel.setText(appInfo.getAppLabel());
 		holder.tvPkgName.setText(appInfo.getPkgName());
 		holder.tvAppUid.setText("" + appInfo.getUid());
+		
 		return view;
 	}
+	
 	class ViewHolder{
 		ImageView appIcon;
 		TextView tvAppLabel;
 		TextView tvPkgName;
 		TextView tvAppUid;
+		
 		public ViewHolder(View view){
 			this.appIcon = (ImageView)view.findViewById(R.id.imgApp);
 			this.tvAppLabel = (TextView)view.findViewById(R.id.tvAppLabel);
@@ -72,5 +77,4 @@ public class BrowseApplicationInfoAdapter extends BaseAdapter{
 			this.tvAppUid = (TextView)view.findViewById(R.id.tvAppUid);
 		}
 	}
-
 }

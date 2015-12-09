@@ -32,8 +32,8 @@ import com.JY.UI.R;
 
 public class AnalysisActivity extends Activity implements OnItemClickListener {
     private long m_exitTime = 0;
-    private LinearLayout main_layout, first_layout, second_layout,
-            third_layout;
+    private LinearLayout permission_layout, traffic_layout, analysis_layout,
+            setting_layout;
     private ListView listview = null;
     private Button openButton;
     private Button closeButton;
@@ -41,6 +41,7 @@ public class AnalysisActivity extends Activity implements OnItemClickListener {
     private PackageManager pm;
     private BrowseApplicationInfoAdapter browseAppAdapter = null;
     private PermissionRecordDAO manageDao;
+    
     int totalNumOfTyep_1;//发送短信
     int totalNumOfTyep_4;//读取短消息数据
     int totalNumOfTyep_8;//读取联系人数据
@@ -56,9 +57,9 @@ public class AnalysisActivity extends Activity implements OnItemClickListener {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         setContentView(R.layout.analysis);
         setupViewComponet();
+        
         manageDao = new PermissionRecordDAO(this);
         browseAppAdapter = new BrowseApplicationInfoAdapter(AnalysisActivity.this,
                 StartActivity.static_listAppInfo);
@@ -69,6 +70,7 @@ public class AnalysisActivity extends Activity implements OnItemClickListener {
     private void initViews() {
         final int test = 12;
         int i = 1;
+        
         totalNumOfTyep_1 = manageDao.getTotalNumOf_type(1);
         totalNumOfTyep_4 = manageDao.getTotalNumOf_type(4);
         totalNumOfTyep_8 = manageDao.getTotalNumOf_type(8);
@@ -87,14 +89,14 @@ public class AnalysisActivity extends Activity implements OnItemClickListener {
         System.out.println(totalNumOfTyep_512);
         System.out.println(totalNumOfTyep_1024);
         System.out.println(manageDao.getNumOfRecord());
+        
         webView = (WebView) findViewById(R.id.webView);
         //因为要调用页面的javascript,所以要启用javascript支持
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setBuiltInZoomControls(true);
-        //在我实现的过程中,没有设置setWebChromeClient时无法调用页面的javascript
+        //在实现的过程中,没有设置setWebChromeClient时无法调用页面的javascript
         webView.setWebChromeClient(new WebChromeClient());
 
-        //webView.getSettings().setBuiltInZoomControls(true);
         // webView.getSettings().setUseWideViewPort(true);
 
         webView.setWebViewClient(new WebViewClient() {
@@ -193,17 +195,17 @@ public class AnalysisActivity extends Activity implements OnItemClickListener {
         Intent intent = getIntent();
         boolean clickble = intent.getBooleanExtra("clickble", true);
 
-        main_layout = (LinearLayout) findViewById(R.id.first_layout_ly);
-        main_layout.setOnClickListener(clickListener_main);
+        permission_layout = (LinearLayout) findViewById(R.id.permission_layout_ly);
+        permission_layout.setOnClickListener(clickListener_permission);
 
-        first_layout = (LinearLayout) findViewById(R.id.second_layout_ly);
-        first_layout.setSelected(clickble);
+        traffic_layout = (LinearLayout) findViewById(R.id.traffic_layout_ly);
+        traffic_layout.setOnClickListener(clickListener_triffic);
 
-        second_layout = (LinearLayout) findViewById(R.id.main_layout_ly);
-        second_layout.setOnClickListener(clickListener_second);
+        analysis_layout = (LinearLayout) findViewById(R.id.analysis_layout_ly);
+        analysis_layout.setSelected(clickble);
 
-        third_layout = (LinearLayout) findViewById(R.id.third_layout_ly);
-        third_layout.setOnClickListener(clickListener_third);
+        setting_layout = (LinearLayout) findViewById(R.id.setting_layout_ly);
+        setting_layout.setOnClickListener(clickListener_setting);
 
         listview = (ListView) findViewById(R.id.listviewApp);
         listview.setOnItemClickListener(this);
@@ -271,53 +273,55 @@ public class AnalysisActivity extends Activity implements OnItemClickListener {
         }
     };
 
-    private OnClickListener clickListener_main = new OnClickListener() {
+    private OnClickListener clickListener_permission = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            main_layout.setSelected(true);
-            first_layout.setSelected(false);
-            second_layout.setSelected(false);
-            third_layout.setSelected(false);
-            Intent intent = new Intent();
-            intent.setClass(AnalysisActivity.this, FlowActivity.class);
-            intent.putExtra("clickble", true);
-            AnalysisActivity.this.finish();
-            startActivity(intent);
-            main_layout.setSelected(false);
-        }
-    };
-    private OnClickListener clickListener_second = new OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            // TODO Auto-generated method stub
-            main_layout.setSelected(false);
-            first_layout.setSelected(false);
-            second_layout.setSelected(false);
-            third_layout.setSelected(false);
+            permission_layout.setSelected(true);
+            traffic_layout.setSelected(false);
+            analysis_layout.setSelected(false);
+            setting_layout.setSelected(false);
             Intent intent = new Intent();
             intent.setClass(AnalysisActivity.this, PermissionActivity.class);
             intent.putExtra("clickble", true);
             AnalysisActivity.this.finish();
             startActivity(intent);
-            second_layout.setSelected(false);
+            permission_layout.setSelected(false);
         }
     };
-    private OnClickListener clickListener_third = new OnClickListener() {
+    
+    private OnClickListener clickListener_triffic = new OnClickListener() {
 
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
-            main_layout.setSelected(false);
-            first_layout.setSelected(false);
-            second_layout.setSelected(false);
-            third_layout.setSelected(true);
+            permission_layout.setSelected(false);
+            traffic_layout.setSelected(false);
+            analysis_layout.setSelected(false);
+            setting_layout.setSelected(false);
+            Intent intent = new Intent();
+            intent.setClass(AnalysisActivity.this, TrafficActivity.class);
+            intent.putExtra("clickble", true);
+            AnalysisActivity.this.finish();
+            startActivity(intent);
+            traffic_layout.setSelected(false);
+        }
+    };
+    
+    private OnClickListener clickListener_setting = new OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            // TODO Auto-generated method stub
+            permission_layout.setSelected(false);
+            traffic_layout.setSelected(false);
+            analysis_layout.setSelected(false);
+            setting_layout.setSelected(true);
             Intent intent = new Intent();
             intent.setClass(AnalysisActivity.this, SettingActivity.class);
             intent.putExtra("clickble", true);
             AnalysisActivity.this.finish();
             startActivity(intent);
-            third_layout.setSelected(false);
+            setting_layout.setSelected(false);
         }
     };
 

@@ -76,6 +76,7 @@ public class Drawable extends Activity {
         AppPkg = bundle.getInt("pkg");//应用程序ID
         pkgName = bundle.getString("pkgName");
         System.out.println(AppLabel + AppPkg + pkgName);
+        
         totalPermissionRecordNum = needToDraw(pkgName);//应用程序数据库中记录的权限记录总数
         hadSendInfo = DataTraffic.getUidTotalSendKB(AppPkg);
         if (hadSendInfo == 0) {
@@ -83,6 +84,7 @@ public class Drawable extends Activity {
         } else {
             backString1 = backString1 +AppLabel + "共上传数据" + hadSendInfo +"KB";
         }
+        
         PermissionRecordDAO manageDAO = new PermissionRecordDAO(this);
 //        SigRecordDao sigRecordDao = new SigRecordDao(this);
 //        long hash = getSignature(pkgName);
@@ -97,14 +99,15 @@ public class Drawable extends Activity {
         }
         setContentView(R.layout.drawable);
         setupViewComponet();
-        dataNum1_sendMSG1 = manageDAO.getTyep_NumOf_pkg(1, AppPkg);
-        dataNum2_getMSG4 = manageDAO.getTyep_NumOf_pkg(4, AppPkg);
-        dataNum3_getPhoneNum8 = manageDAO.getTyep_NumOf_pkg(8, AppPkg);
-        dataNum4_getCallRecord16 = manageDAO.getTyep_NumOf_pkg(16, AppPkg);
-        dataNum5_getPosition32 = manageDAO.getTyep_NumOf_pkg(32, AppPkg);
-        dataNum6_getIMEI64 = manageDAO.getTyep_NumOf_pkg(64, AppPkg);
-        dataNum7_getROOT512 = manageDAO.getTyep_NumOf_pkg(512, AppPkg);
-        dataNum8_getInTelSta1024 = manageDAO.getTyep_NumOf_pkg(1024, AppPkg);
+        
+        dataNum1_sendMSG1 = manageDAO.getTyep_NumOf_pkg(1, pkgName);
+        dataNum2_getMSG4 = manageDAO.getTyep_NumOf_pkg(4, pkgName);
+        dataNum3_getPhoneNum8 = manageDAO.getTyep_NumOf_pkg(8, pkgName);
+        dataNum4_getCallRecord16 = manageDAO.getTyep_NumOf_pkg(16, pkgName);
+        dataNum5_getPosition32 = manageDAO.getTyep_NumOf_pkg(32, pkgName);
+        dataNum6_getIMEI64 = manageDAO.getTyep_NumOf_pkg(64, pkgName);
+        dataNum7_getROOT512 = manageDAO.getTyep_NumOf_pkg(512, pkgName);
+        dataNum8_getInTelSta1024 = manageDAO.getTyep_NumOf_pkg(1024, pkgName);
 
         if (dataNum1_sendMSG1 != 0) {
             signalExit1 = 1;
@@ -153,7 +156,7 @@ public class Drawable extends Activity {
         System.out.println("pkg---->" + AppPkg);
         System.out.println("App---->" + AppLabel);
         System.out.println("need to draw--->" + needToDraw(pkgName));
-        System.out.println("getNumOf_Pkg--->" + manageDAO.getNumOf_Pkg(AppPkg));
+        System.out.println("getNumOf_Pkg--->" + manageDAO.getNumOf_Pkg(pkgName));
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, m);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -6,7 +6,7 @@
     android:orientation="horizontal" >
 
     <LinearLayout
-        android:id="@+id/main_layout_ly"
+        android:id="@+id/permission_layout_ly"
         android:layout_width="64dip"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
@@ -35,7 +35,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/first_layout_ly"
+        android:id="@+id/traffic_layout_ly"
         android:layout_width="64dip"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
@@ -65,7 +65,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/second_layout_ly"
+        android:id="@+id/analysis_layout_ly"
         android:layout_width="64dip"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
@@ -95,7 +95,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/third_layout_ly"
+        android:id="@+id/setting_layout_ly"
         android:layout_width="64dip"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"

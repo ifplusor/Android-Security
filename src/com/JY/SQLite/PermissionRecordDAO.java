@@ -42,12 +42,8 @@ public class PermissionRecordDAO {
         return null;
     }
 
-    /*
-     * int getNumOf_Pkg(int pkg);
-     * 参数：pkg号（也就是uid）
-     * 返回值，这类pkg的信息个数
-    */
-    public int getNumOf_Pkg(int pkg) {
+    
+    public int getNumOf_Pkg(String pkg) {
         db = helper.getWritableDatabase();
         Cursor cursor = db.query("eventlog", new String[]{"title", "content", "pkg", "timestamp", "_id", "action", "type"}, "pkg=?", new String[]{String.valueOf(pkg)}, null, null, null);
         return cursor.getCount();
@@ -59,7 +55,7 @@ public class PermissionRecordDAO {
         return cursor.getCount();
     }
 
-    public int getTyep_NumOf_pkg(int type,int pkg) {
+    public int getTyep_NumOf_pkg(int type, String pkg) {
         db = helper.getWritableDatabase();
         Cursor cursor = db.query("eventlog", new String[]{"title", "content", "pkg", "timestamp", "_id", "action", "type"}, "pkg=? and type=?", new String[]{String.valueOf(pkg),String.valueOf(type)}, null, null, null);
         return cursor.getCount();

@@ -24,25 +24,25 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class FlowActivity extends Activity {
+public class TrafficActivity extends Activity {
 	private long m_exitTime = 0;
 	private PackageManager pm;
 //	public List<AppInfo> mlistAppInfo;
 	private ListView listview = null;
 	private BrowseTrafficAdapter browseTrafficAdapter = null;
-	private LinearLayout main_layout, first_layout, second_layout,
-			third_layout;
+	private LinearLayout permission_layout, traffic_layout, analysis_layout,
+			setting_layout;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.flow);
+		setContentView(R.layout.traffic);
 		setupViewComponet();
 		
 //		mlistAppInfo = queryFilterAppInfo();
-		browseTrafficAdapter = new BrowseTrafficAdapter(FlowActivity.this,
+		browseTrafficAdapter = new BrowseTrafficAdapter(TrafficActivity.this,
 				StartActivity.static_listAppInfo);
 		listview.setAdapter(browseTrafficAdapter);
 
@@ -74,17 +74,17 @@ public class FlowActivity extends Activity {
 		Intent intent = getIntent();
 		boolean clickble = intent.getBooleanExtra("clickble", true);
 
-		main_layout = (LinearLayout) findViewById(R.id.main_layout_ly);
-		main_layout.setOnClickListener(clickListener_main);
+		permission_layout = (LinearLayout) findViewById(R.id.permission_layout_ly);
+		permission_layout.setOnClickListener(clickListener_permision);
 
-		first_layout = (LinearLayout) findViewById(R.id.first_layout_ly);
-		first_layout.setSelected(clickble);
+		traffic_layout = (LinearLayout) findViewById(R.id.traffic_layout_ly);
+		traffic_layout.setSelected(clickble);
 
-		second_layout = (LinearLayout) findViewById(R.id.second_layout_ly);
-		second_layout.setOnClickListener(clickListener_second);
+		analysis_layout = (LinearLayout) findViewById(R.id.analysis_layout_ly);
+		analysis_layout.setOnClickListener(clickListener_analysis);
 
-		third_layout = (LinearLayout) findViewById(R.id.third_layout_ly);
-		third_layout.setOnClickListener(clickListener_third);
+		setting_layout = (LinearLayout) findViewById(R.id.setting_layout_ly);
+		setting_layout.setOnClickListener(clickListener_setting);
 
 		listview = (ListView) findViewById(R.id.TrafficListviewApp);
 	}
@@ -96,54 +96,54 @@ public class FlowActivity extends Activity {
 	// this.finish();
 	// }
 
-	private OnClickListener clickListener_second = new OnClickListener() {
+	private OnClickListener clickListener_analysis = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			main_layout.setSelected(false);
-			first_layout.setSelected(false);
-			second_layout.setSelected(true);
-			third_layout.setSelected(false);
+			permission_layout.setSelected(false);
+			traffic_layout.setSelected(false);
+			analysis_layout.setSelected(true);
+			setting_layout.setSelected(false);
 			Intent intent = new Intent();
-			intent.setClass(FlowActivity.this, AnalysisActivity.class);
+			intent.setClass(TrafficActivity.this, AnalysisActivity.class);
 			intent.putExtra("clickble", true);
-			FlowActivity.this.finish();
+			TrafficActivity.this.finish();
 			startActivity(intent);
-			first_layout.setSelected(false);
+			traffic_layout.setSelected(false);
 		}
 	};
-	private OnClickListener clickListener_main = new OnClickListener() {
+	private OnClickListener clickListener_permision = new OnClickListener() {
 
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			main_layout.setSelected(true);
-			first_layout.setSelected(false);
-			second_layout.setSelected(false);
-			third_layout.setSelected(false);
+			permission_layout.setSelected(true);
+			traffic_layout.setSelected(false);
+			analysis_layout.setSelected(false);
+			setting_layout.setSelected(false);
 			Intent intent = new Intent();
-			intent.setClass(FlowActivity.this, PermissionActivity.class);
+			intent.setClass(TrafficActivity.this, PermissionActivity.class);
 			intent.putExtra("clickble", true);
-			FlowActivity.this.finish();
+			TrafficActivity.this.finish();
 			startActivity(intent);
-			second_layout.setSelected(false);
+			analysis_layout.setSelected(false);
 		}
 	};
-	private OnClickListener clickListener_third = new OnClickListener() {
+	private OnClickListener clickListener_setting = new OnClickListener() {
 
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			main_layout.setSelected(false);
-			first_layout.setSelected(false);
-			second_layout.setSelected(false);
-			third_layout.setSelected(true);
+			permission_layout.setSelected(false);
+			traffic_layout.setSelected(false);
+			analysis_layout.setSelected(false);
+			setting_layout.setSelected(true);
 			Intent intent = new Intent();
-			intent.setClass(FlowActivity.this, SettingActivity.class);
+			intent.setClass(TrafficActivity.this, SettingActivity.class);
 			intent.putExtra("clickble", true);
-			FlowActivity.this.finish();
+			TrafficActivity.this.finish();
 			startActivity(intent);
-			third_layout.setSelected(false);
+			setting_layout.setSelected(false);
 		}
 	};
 
